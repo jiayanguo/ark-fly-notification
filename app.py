@@ -64,7 +64,7 @@ def get_credentials():
     
 def main(key):
     date = get_date()
-    html_table = build_html_table(object_key)
+    html_table = build_html_table(key)
     email_message = "Ark opened below new holdings on " + date + "\n" + html_table
     
     credentials = get_credentials()
