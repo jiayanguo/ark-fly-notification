@@ -1,0 +1,7 @@
+./image/
+README.MD
+*.xls
+credentials*
+token.pickle
+env.var
+*.csv
