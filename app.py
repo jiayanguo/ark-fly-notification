@@ -69,8 +69,9 @@ def main(key):
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('gmail', 'v1', http=http, cache_discovery=False)
-    message = create_message(SENDER, SEND_NOTIFICATION_TO, "ARK new holdings", email_message)
-    send_message(service, 'me', message)
+    message_body = create_message(SENDER, SEND_NOTIFICATION_TO, "ARK new holdings", email_message)
+    message = send_message(service, 'me', message_body)
+    delete_massage(service, 'me', message['id'])
 
 def get_date():
     tz = timezone('EST')
@@ -87,6 +88,12 @@ def create_message(sender, to, subject, message_text):
         'raw': raw_message.decode("utf-8"),
         'payload': {'mimeType': 'text/html'}
   }
+
+def delete_massage(service, user_id, message_id):
+  try:
+    message = service.users().messages().delete(userId=user_id, id=message_id).execute()
+  except Exception as error:
+    raise error
 
 def send_message(service, user_id, message):
   try:
