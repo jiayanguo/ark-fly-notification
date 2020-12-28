@@ -12,6 +12,7 @@ from email.mime.text import MIMEText
 import base64
 from oauth2client import client, tools, file
 import httplib2
+import urllib
 
 OBJECT_KEY_PATTERN="newholdings/{today}-trading.csv"
 SEND_NOTIFICATION_TO = "guojiayanc@gmail.com"
