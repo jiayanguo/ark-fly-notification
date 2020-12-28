@@ -13,6 +13,7 @@ import base64
 from oauth2client import client, tools, file
 import httplib2
 import urllib
+import os
 
 OBJECT_KEY_PATTERN="newholdings/{today}-trading.csv"
 SEND_NOTIFICATION_TO = "guojiayanc@gmail.com"
