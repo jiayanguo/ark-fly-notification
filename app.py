@@ -36,7 +36,7 @@ def get_csv(object_key):
     return result
 
 def build_html_table(object_key):
-    html_table = "<table border='1'><thead><tr>"
+    html_table = "<table border='0' cellspacing='0' cellpadding='5' style='font-family: Arial;font-size:13px;'><thead><tr bgcolor='#000' style='color:#fff; background-color:#000'>"
     data = get_csv(object_key)
     for header in data[0]:
         html_table += "<th>{col}</th>".format(col=header)
