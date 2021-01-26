@@ -83,6 +83,9 @@ def get_date():
 def create_message(sender, to, subject, message_text):
     message = MIMEText(message_text, 'html')
     message['to'] = to
+    bcc = os.environ['BCC_LIST']  # comma separated string
+    if bcc:
+        message['bcc'] = bcc
     # message['from'] = sender
     message['subject'] = subject
     raw_message = base64.urlsafe_b64encode(message.as_string().encode("utf-8"))
